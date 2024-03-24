@@ -1,0 +1,26 @@
+{
+  "name": "jun-task",
+  "version": "1.0.0",
+  "description": "Задание на позицию Junior Node JS Developer",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "Node",
+    "JS",
+    "Express",
+    "MSSQL"
+  ],
+  "author": "Rafael Melikyan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "config": "^3.3.11",
+    "express": "^4.19.1",
+    "mssql": "^10.0.2",
+    "nodemon": "^3.1.0"
+  }
+}

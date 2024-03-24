@@ -1,0 +1,13 @@
+{
+    "dbConfig": {
+        "user": "sa2",
+        "password": "123",
+        "database": "SR",
+        "server": "localhost",
+        "port": 58839,
+        "options": {
+            "encrypt": false
+        }
+    },
+    "PORT": 5000
+}
