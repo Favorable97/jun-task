@@ -1,4 +1,4 @@
-import sql from '../db.js'
+import sql from '../../db.js'
 class User {
     getAllUsers = async () => {
         const users = await sql.executeQuerry('SELECT * FROM Users')

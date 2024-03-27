@@ -1,32 +1,21 @@
-import services from '../services/index.js'
+import services from '../services/v2/index.js'
+import response from '../response/response.js'
 class User {
     getAllUsers = async (req, res) => {
         try {
             const users = await services.getAllUsers()
-            res.send({
-                message: 'Success',
-                data: users
-            })
+            response.handleSuccess(res, 200, users)
         } catch (error) {
-            res.status(200).send({
-                message: 'Error',
-                data: error.message
-            })
+            response.handleError(res, 500, error)
         }
     }
     getOneUser = async (req, res) => {
         try {
             const userId = req.params.userId
             const user = await services.getOneUser(userId)
-            res.status(200).send({
-                message: 'Success',
-                data: user
-            })
+            response.handleSuccess(res, 200, user)
         } catch (error) {
-            res.send({
-                message: 'Error',
-                data: error.message
-            })
+            response.handleError(res, 500, error)
         }
     }
     createNewUser = async (req, res) => {
@@ -36,15 +25,9 @@ class User {
                 throw new Error('Не указаны обязательные поля!')
             }
             await services.createNewUser(userName, email)
-            res.status(201).send({
-                message: 'Success',
-                data: {userName, email}
-            })
+            response.handleSuccess(res, 201, {userName, email})
         } catch (error) {
-            res.send({
-                message: 'Error',
-                data: error.message
-            })
+            response.handleError(res, 500, error)
         }
     }
     updateUser = async (req, res) => {
@@ -54,15 +37,9 @@ class User {
                 throw new Error('Не указаны обязательные поля!')
             }
             await services.updateUser(user.userId, user.userName, user.email)
-            res.status(202).send({
-                message: 'Success',
-                data: user
-            })
+            response.handleSuccess(res, 202, user)
         } catch (error) {
-            res.send({
-                message: 'Error',
-                data: error.message
-            })
+            response.handleError(res, 500, error)
         }
     }
     deleteUser = async (req, res) => {
@@ -70,15 +47,9 @@ class User {
             const userId = req.params.userId
             console.log(userId)
             await services.deleteUser(userId)
-            res.status(202).send({
-                message: 'Success',
-                data: userId
-            })
+            response.handleSuccess(res, 202, userId)
         } catch (error) {
-            res.send({
-                message: 'Error',
-                data: error.message
-            })
+            response.handleError(res, 500, error)
         }
     }
 }
