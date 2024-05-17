@@ -1,5 +1,5 @@
-import services from '../services/v2/index.js'
-import response from '../response/response.js'
+import services from '../../services/v1/index.js'
+import response from '../../response/response.js'
 class User {
     getAllUsers = async (req, res) => {
         try {

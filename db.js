@@ -3,7 +3,7 @@ import config from 'config'
 
 const pool = new sql.ConnectionPool(config.get('dbConfig'))
 
-const executeQuerry = async (query, params) => {
+const executeQuery = async (query, params) => {
     console.log('Start to execute', query)
     try {
         await pool.connect()
@@ -27,5 +27,5 @@ const executeQuerry = async (query, params) => {
 }
 
 export default {
-    executeQuerry
+    executeQuery
 } 
